@@ -6,11 +6,7 @@ import { LoggerService } from './logger.service';
   providedIn: 'root'
 })
 export class CalculatorService {
-
-
-  constructor(private logger: LoggerService) {
-
-  }
+  constructor(private logger: LoggerService) {}
 
   add(n1: number, n2: number) {
     this.logger.log("Addition operation called");
