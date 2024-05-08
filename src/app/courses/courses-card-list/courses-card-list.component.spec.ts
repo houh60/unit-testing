@@ -36,8 +36,8 @@ describe('CoursesCardListComponent', () => {
   it("should display the first course", () => {
     const course = component.courses[0];
     const card = el.query(By.css('.course-card:first-child'));
-    const title = el.query(By.css('mat-card-title'));
-    const image = el.query(By.css('img'));
+    const title = card.query(By.css('mat-card-title'));
+    const image = card.query(By.css('img'));
 
     expect(card).toBeTruthy('Could not find the course card');
     expect(title.nativeElement.textContent).toBe(course.titles.description);

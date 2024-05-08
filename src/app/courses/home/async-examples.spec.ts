@@ -6,6 +6,7 @@ describe('Async Testing Examples', () => {
 
   it('Asynchronous test example with Jasmine done()', (done: DoneFn) => {
     let test = false;
+
     setTimeout(() => {
       test = true;
       expect(test).toBeTruthy();
@@ -19,6 +20,7 @@ describe('Async Testing Examples', () => {
     setTimeout(() => {
       test = true;
     }, 1000);
+
     flush();
     expect(test).toBeTruthy();
   }));
@@ -27,9 +29,9 @@ describe('Async Testing Examples', () => {
     let test = false;
 
     Promise.resolve().then(() => {
-      test = true;
       return Promise.resolve();
     }).then(() => {
+      test = true;
     });
 
     flushMicrotasks();
@@ -39,14 +41,12 @@ describe('Async Testing Examples', () => {
 
   it('Asynchronous test example - promise + setTimeout()', fakeAsync(() => {
     let counter = 0;
-
     Promise.resolve().then(() => {
       counter += 10;
       setTimeout(() => {
         counter += 1;
       }, 1000);
     });
-
     expect(counter).toBe(0);
     flushMicrotasks();
     expect(counter).toBe(10);
@@ -60,11 +60,13 @@ describe('Async Testing Examples', () => {
     let test = false;
 
     const test$ = of(test).pipe(delay(1000));
+
     test$.subscribe(() => {
       test = true;
     });
 
     tick(1000);
+
     expect(test).toBe(true);
   }));
 

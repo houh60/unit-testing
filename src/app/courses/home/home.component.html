@@ -9,9 +9,8 @@
       </mat-tab>
     </ng-container>
 
-
     <ng-container *ngIf="(advancedCourses$ | async) as advancedCourses">
-      <mat-tab id="advanced" label="Advanced" *ngIf="advancedCourses?.length > 0">
+      <mat-tab label="Advanced" *ngIf="advancedCourses?.length > 0">
         <courses-card-list (courseEdited)="reloadCourses()" [courses]="advancedCourses">
         </courses-card-list>
       </mat-tab>
